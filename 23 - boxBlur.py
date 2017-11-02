@@ -1,6 +1,6 @@
 def boxBlur(image):
     row = len(image)
-    col = len(image[1])
+    col = len(image[0])
 
     retorno = [[] for x in range(row - 2)]
 
