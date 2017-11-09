@@ -1,6 +1,5 @@
 def increment(row, col, ret):
-    row += 1
-    col += 1
+    row, col = row+1, col+1
     for l in range(row - 1, row + 2):
         for m in range(col - 1, col + 2):
             ret[l][m] += 1
@@ -16,11 +15,10 @@ def minesweeper(matrix):
         for j in range(cols):
             if matrix[i][j]:
                 increment(i, j, retorno)
-                #decrementa em um o proprio lugar da mina
-                retorno[i+1][j+1] -= 1
+                retorno[i+1][j+1] -= 1 #own trap decrement
 
     return [x[1:cols+1] for x in retorno[1:rows+1]]
 
 print (minesweeper([[1, 0, 0], [0, 1, 0], [0, 0, 0]]))
-# print (minesweeper([[0, 0, 0], [0, 0, 0]]))
-# print (minesweeper([[1, 0, 0, 1], [0, 0, 1, 0], [1, 1, 0, 1]]))
+print (minesweeper([[0, 0, 0], [0, 0, 0]]))
+print (minesweeper([[1, 0, 0, 1], [0, 0, 1, 0], [1, 1, 0, 1]]))
